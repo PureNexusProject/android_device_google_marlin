@@ -50,11 +50,11 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
 
 # Override heap growth limit due to high display density on device
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=256m \
-    ro.telephony.default_cdma_sub=0
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    dalvik.vm.heapgrowthlimit=256m \
+#    ro.telephony.default_cdma_sub=0
 
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+#$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, device/google/marlin/common/common64.mk)
 
 #Android EGL implementation
@@ -66,19 +66,19 @@ PRODUCT_PACKAGES += TelephonyMonitor
 endif
 
 # graphics
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=196610
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.opengles.version=196610
 
 # HWUI common settings
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.gradient_cache_size=1 \
-    ro.hwui.drop_shadow_cache_size=6 \
-    ro.hwui.r_buffer_cache_size=8 \
-    ro.hwui.texture_cache_flushrate=0.4 \
-    ro.hwui.text_small_cache_width=1024 \
-    ro.hwui.text_small_cache_height=1024 \
-    ro.hwui.text_large_cache_width=2048 \
-    ro.hwui.text_large_cache_height=1024
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.hwui.gradient_cache_size=1 \
+#    ro.hwui.drop_shadow_cache_size=6 \
+#    ro.hwui.r_buffer_cache_size=8 \
+#    ro.hwui.texture_cache_flushrate=0.4 \
+#    ro.hwui.text_small_cache_width=1024 \
+#    ro.hwui.text_small_cache_height=1024 \
+#    ro.hwui.text_large_cache_width=2048 \
+#    ro.hwui.text_large_cache_height=1024
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += fs_config_files \
@@ -128,7 +128,7 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-service \
     android.hardware.vr@1.0-service \
 
-PRODUCT_PROPERTY_OVERRIDES += ro.hardware.power=marlin
+#PRODUCT_PROPERTY_OVERRIDES += ro.hardware.power=marlin
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -169,12 +169,12 @@ PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
 # set audio fluence, ns, aec property
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qc.sdk.audio.fluencetype=fluencepro \
-    persist.audio.fluence.voicecall=true \
-    persist.audio.fluence.speaker=true \
-    persist.audio.fluence.voicecomm=true \
-    persist.audio.fluence.voicerec=false
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.qc.sdk.audio.fluencetype=fluencepro \
+#    persist.audio.fluence.voicecall=true \
+#    persist.audio.fluence.speaker=true \
+#    persist.audio.fluence.voicecomm=true \
+#    persist.audio.fluence.voicerec=false
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
@@ -295,48 +295,48 @@ PRODUCT_COPY_FILES += \
     device/google/marlin/init.qcom.devstart.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.devstart.sh
 
 # Reduce client buffer size for fast audio output tracks
-PRODUCT_PROPERTY_OVERRIDES += \
-    af.fast_track_multiplier=1
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    af.fast_track_multiplier=1
 
 # Low latency audio buffer size in frames
-PRODUCT_PROPERTY_OVERRIDES += \
-    audio_hal.period_size=192
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    audio_hal.period_size=192
 
 # Write Manufacturer & Model information in created media files.
 # IMPORTANT: ONLY SET THIS PROPERTY TO TRUE FOR PUBLIC DEVICES
-ifneq ($(filter aosp_sailfish% sailfish% aosp_marlin% marlin%, $(TARGET_PRODUCT)),)
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.recorder.show_manufacturer_and_model=true
-else
-$(error "you must decide whether to write manufacturer and model information into created media files for this device. ONLY ENABLE IT FOR PUBLIC DEVICE.")
-endif  #TARGET_PRODUCT
+#ifneq ($(filter aosp_sailfish% sailfish% aosp_marlin% marlin%, $(TARGET_PRODUCT)),)
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    media.recorder.show_manufacturer_and_model=true
+#else
+#$(error "you must decide whether to write manufacturer and model information into created media files for this device. ONLY ENABLE IT FOR PUBLIC DEVICE.")
+#endif  #TARGET_PRODUCT
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.gyro.android=4 \
-    persist.camera.tof.direct=1 \
-    persist.camera.tnr.preview=1 \
-    persist.camera.tnr.video=1
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    persist.camera.gyro.android=4 \
+#    persist.camera.tof.direct=1 \
+#    persist.camera.tnr.preview=1 \
+#    persist.camera.tnr.video=1
 
 # Set bluetooth soc to rome
-PRODUCT_PROPERTY_OVERRIDES += \
-    qcom.bluetooth.soc=rome
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    qcom.bluetooth.soc=rome
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.cne.feature=1 \
-    persist.radio.data_ltd_sys_ind=1 \
-    persist.radio.is_wps_enabled=true \
-    persist.radio.RATE_ADAPT_ENABLE=1 \
-    persist.radio.ROTATION_ENABLE=1 \
-    persist.radio.sw_mbn_update=1 \
-    persist.radio.videopause.mode=1 \
-    persist.radio.VT_ENABLE=1 \
-    persist.radio.VT_HYBRID_ENABLE=1 \
-    persist.radio.data_con_rprt=true \
-    persist.rcs.supported=1 \
-    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    persist.cne.feature=1 \
+#    persist.radio.data_ltd_sys_ind=1 \
+#    persist.radio.is_wps_enabled=true \
+#    persist.radio.RATE_ADAPT_ENABLE=1 \
+#    persist.radio.ROTATION_ENABLE=1 \
+#    persist.radio.sw_mbn_update=1 \
+#    persist.radio.videopause.mode=1 \
+#    persist.radio.VT_ENABLE=1 \
+#    persist.radio.VT_HYBRID_ENABLE=1 \
+#    persist.radio.data_con_rprt=true \
+#    persist.rcs.supported=1 \
+#    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.mode=concurrent
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    persist.data.mode=concurrent
 
 # Enable SM log mechanism by default
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -347,18 +347,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 endif
 
 # Disable snapshot feature
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.snapshot_enabled=0 \
-    persist.radio.snapshot_timer=0
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    persist.radio.snapshot_enabled=0 \
+#    persist.radio.snapshot_timer=0
 
 # IMS over WiFi
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.iwlan.enable=true
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    persist.data.iwlan.enable=true
 
 # LTE, CDMA, GSM/WCDMA
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.default_network=10 \
-    telephony.lteOnCdmaDevice=1
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.telephony.default_network=10 \
+#    telephony.lteOnCdmaDevice=1
 
 PRODUCT_AAPT_CONFIG += xlarge large
 PRODUCT_CHARACTERISTICS := nosdcard
@@ -366,9 +366,9 @@ PRODUCT_CHARACTERISTICS := nosdcard
 # Enable camera EIS
 # eis.enable: enables electronic image stabilization
 # is_type: sets image stabilization type
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.eis.enable=1 \
-    persist.camera.is_type=4
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    persist.camera.eis.enable=1 \
+#    persist.camera.is_type=4
 
 # Fingerprint HIDL implementation
 PRODUCT_PACKAGES += \
@@ -393,8 +393,8 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Subsystem silent restart
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.ssr.restart_level=venus,AR6320,slpi,modem,adsp
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    persist.sys.ssr.restart_level=venus,AR6320,slpi,modem,adsp
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/thermal-engine-marlin.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf \
@@ -404,8 +404,8 @@ $(call inherit-product-if-exists, hardware/qcom/msm8996/msm8996.mk)
 $(call inherit-product-if-exists, vendor/qcom/gpu/msm8996/msm8996-gpu-vendor.mk)
 
 #Property of the BDA module path for loading BDA
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.bt.bdaddr_path=/sys/module/bdaddress/parameters/bdaddress
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.bt.bdaddr_path=/sys/module/bdaddress/parameters/bdaddress
 
 # Needed for encryption
 PRODUCT_PACKAGES += \
@@ -431,8 +431,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	cppreopts.sh
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.cp_system_other_odex=1
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.cp_system_other_odex=1
 
 # Script that copies preloads directory from system_other to data partition
 PRODUCT_COPY_FILES += \
@@ -508,8 +508,8 @@ PRODUCT_PACKAGES += \
 endif
 
 # NFC/camera interaction workaround - DO NOT COPY TO NEW DEVICES
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.camera.notify_nfc=1
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.camera.notify_nfc=1
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/nfc/libnfc-brcm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm.conf \
@@ -522,17 +522,17 @@ PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
 # Storage: for factory reset protection feature
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.frp.pst=/dev/block/platform/soc/624000.ufshc/by-name/frp
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.frp.pst=/dev/block/platform/soc/624000.ufshc/by-name/frp
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    sdm.debug.disable_rotator_split=1 \
-    qdcm.only_pcc_for_trans=1 \
-    qdcm.diagonal_matrix_mode=1
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    sdm.debug.disable_rotator_split=1 \
+#    qdcm.only_pcc_for_trans=1 \
+#    qdcm.diagonal_matrix_mode=1
 
 # Enable low power video mode for 4K encode
-PRODUCT_PROPERTY_OVERRIDES += \
-    vidc.debug.perf.mode=2
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    vidc.debug.perf.mode=2
 
 # OEM Unlock reporting
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -570,8 +570,8 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_OPTIONAL_system=true
 
 #Reduce cost of scrypt for FBE CE decryption
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.crypto.scrypt_params=13:3:1
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.crypto.scrypt_params=13:3:1
 
 # Set if a device image has the VTS coverage instrumentation.
 ifeq ($(NATIVE_COVERAGE),true)
@@ -608,8 +608,8 @@ endif
 
 # b/32109329
 # Workaround for audio glitches
-PRODUCT_PROPERTY_OVERRIDES += \
-    audio.adm.buffering.ms=3
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    audio.adm.buffering.ms=3
 
 # Vendor seccomp policy files for media components:
 PRODUCT_COPY_FILES += \
@@ -619,8 +619,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/google/marlin/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.vndk.version=26.1.0 \
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.vendor.vndk.version=26.1.0 \
 
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0.vndk-sp\

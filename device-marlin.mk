@@ -28,18 +28,18 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/marlin/overlay
 
 # display
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=560
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.sf.lcd_density=560
 
 # Audio
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.vc_call_vol_steps=7
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.config.vc_call_vol_steps=7
 
 # HWUI cache sizes
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hwui.texture_cache_size=72 \
-    ro.hwui.layer_cache_size=48 \
-    ro.hwui.path_cache_size=32
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.hwui.texture_cache_size=72 \
+#    ro.hwui.layer_cache_size=48 \
+#    ro.hwui.path_cache_size=32
 
 PRODUCT_COPY_FILES += \
     device/google/marlin/fstab.common:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.marlin \
